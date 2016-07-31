@@ -1,6 +1,6 @@
 FROM alpine:3.3
 
-MAINTAINER Xadozuk <xadozuk@gmail.com>
+MAINTAINER Andrew Taranik <me@pureclouds.net>
 
 RUN apk --no-cache add postfix rsyslog supervisor bash
 COPY entrypoint postfix /
