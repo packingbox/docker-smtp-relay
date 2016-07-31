@@ -1,18 +1,14 @@
-# xadozuk/smtp-relay
+# Simple dockerized smtp relay server based on postfix
 
-Internal SMTP relay for docker containers.
+Project forked from [xadozuk/smtp-relay](https://github.com/xadozuk/docker-smtp-relay)
 
 You must configure your domain accordingly (reverse DNS, SPF, ...) for mail not to be considered as spam.
-
-Docker : https://hub.docker.com/r/xadozuk/smtp-relay
-
-Github : https://github.com/xadozuk/docker-smtp-relay
 
 ## Security Consideration
 
 This image has **not** been extensively tested for security. 
 
-*Only* containers from docker network can use the smtp relay.
+*Only* containers from docker networks and RELAY_NETWORKS can use the smtp relay.
 
 You **shouldn't** expose the port 25 of this container directly on the Internet.
 
@@ -21,7 +17,7 @@ You **shouldn't** expose the port 25 of this container directly on the Internet.
 1. First start the smtp relay container
 
   ```
-  docker run -d --name smtp-relay -e SMTP_HOSTNAME=smtp.domain.tld xadozuk/smtp-relay
+  docker run -d --name smtp-relay -e SMTP_HOSTNAME=smtp.domain.tld pure/smtp-relay
   ```
   
 2. Link the smtp relay to another container
@@ -32,3 +28,11 @@ You **shouldn't** expose the port 25 of this container directly on the Internet.
   
 3. Connect to the smtp relay with `smtp:25` inside your container.
 4. Enjoy !
+
+## Relay for networks
+
+Set environment variable RELAY_NATWORKS to add subnets in postfix configuration (as example for subnet **10.11.12.0/24**):
+
+```
+  docker run -d --name smtp-relay -e SMTP_HOSTNAME=smtp.domain.tld -e RELAY_NETWORKS="10.11.12.0/24" pure/smtp-relay
+```
