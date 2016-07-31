@@ -31,7 +31,7 @@ You **shouldn't** expose the port 25 of this container directly on the Internet.
 
 ## Relay for networks
 
-Set environment variable RELAY_NATWORKS to add subnets in postfix configuration (as example for two subnets **10.11.12.0/24, 10.22.32.0/24** and exposing port to host):
+Set environment variable RELAY_NETWORKS to add subnets in postfix configuration (as example for two subnets **10.11.12.0/24, 10.22.32.0/24** and exposing port to host):
 
 ```
   docker run \
