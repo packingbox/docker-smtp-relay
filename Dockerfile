@@ -1,6 +1,6 @@
-FROM alpine:3.3
+FROM alpine:3.7
 
-MAINTAINER Andrew Taranik <me@pureclouds.net>
+MAINTAINER Packingbox <admin@myds.cloud>
 
 RUN apk --no-cache add postfix rsyslog supervisor bash
 COPY entrypoint postfix /
