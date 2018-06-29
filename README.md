@@ -40,5 +40,5 @@ Set environment variable RELAY_NETWORKS to add subnets in postfix configuration 
     --name smtp-relay \
     -e SMTP_HOSTNAME=smtp.domain.tld \
     -e RELAY_NETWORKS="10.11.12.0/24 10.22.32.0/24" \
-    pure/smtp-relay
+    packingbox/docker-smtp-relay
 ```
